@@ -55,7 +55,6 @@ for(var i = 0; i < this.columnArray.length; i++){
   }
 };
 return this.ryansArray;
-console.log(ryansArray);
 }
 
 exports.NannerLogic.prototype.dealHand = function(){
@@ -65,7 +64,6 @@ exports.NannerLogic.prototype.dealHand = function(){
   for(var i = 0; i < 21; i++){
     number = Math.floor((Math.random() * 25) + 1);
     handArray.push(letterArray[number]);
-    console.log(handArray[20]);
   }
   return handArray;
 }

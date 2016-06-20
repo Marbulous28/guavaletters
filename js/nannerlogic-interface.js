@@ -1,4 +1,5 @@
 var NannerLogic = require("./../js/nannerlogic.js").NannerLogic;
+var clickedTile = null;
 
 $(document).ready(function(){
   $('#run').click(function(){
@@ -7,12 +8,20 @@ $(document).ready(function(){
     $('#run').hide();
     var newHand = nannerLogic.dealHand();
     for(var j = 0; j < 21; j++){
-      $('#hand'+j).append(newHand[j]);
+      $('#handLetter'+j).append(newHand[j]);
     }
+
+    // $('.gameTile').click(function(){
+    //   if(clickedTile === null){
+    //     $(this).children().first().hide();
+    //     clickedTile = $(this).children().first().html();
+    //   } else if (clickedTile !== null){
+    //
+    //   }
+    // });
 
     var testArrayRows = nannerLogic.checkArrayRows();
     var testArrayCols = nannerLogic.columnsToRows();
-    console.log(testArrayCols);
     for(var i = 0; i < testArrayRows.length; i++){
       var enteredWord = testArrayRows[i];
       var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
