@@ -19,9 +19,18 @@ function checkArray(){
 };
 
 $(document).ready(function(){
-  console.log(nannerArray);
-
-  $("#run").click(function(){
-    console.log(checkArray(), nullSwitch);
-  })
-})
+  $('#run').click(function(){
+    var testArray = ['dog', 'cat', 'blrrg', 'biscuit', 'russia', 'panic'];
+    for(var i = 0; i < testArray.length; i++){
+      var enteredWord = testArray[i];
+      var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
+      $.get(api, function(response){
+        if(response.results.length !== 0){
+          console.log(response.results);
+        } else{
+          console.log(response.results);
+        }
+      });
+    }
+  });
+});
