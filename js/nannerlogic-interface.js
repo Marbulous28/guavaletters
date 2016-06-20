@@ -2,7 +2,6 @@ var NannerLogic = require("./../js/nannerlogic.js").NannerLogic;
 
 $(document).ready(function(){
   var nannerLogic = new NannerLogic();
-  debugger
   $('#run').click(function(){
     var testArray = nannerLogic.checkArray();
     for(var i = 0; i < testArray.length; i++){
