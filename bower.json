@@ -1,0 +1,22 @@
+{
+  "name": "satanagrams",
+  "description": "grams of banana",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "moment": "^2.13.0",
+    "bootstrap": "^3.3.6"
+  },
+  "authors": [
+    "Samuel Durfey"
+  ]
+}
