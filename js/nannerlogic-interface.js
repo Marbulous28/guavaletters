@@ -8,17 +8,18 @@ $(document).ready(function(){
     $('#run').hide();
     var newHand = nannerLogic.dealHand();
     for(var j = 0; j < 21; j++){
-      $('#handLetter'+j).append(newHand[j]);
+      $('#handLetter'+j).html(newHand[j]);
     }
 
-    // $('.gameTile').click(function(){
-    //   if(clickedTile === null){
-    //     $(this).children().first().hide();
-    //     clickedTile = $(this).children().first().html();
-    //   } else if (clickedTile !== null){
-    //
-    //   }
-    // });
+    $('.gameTile').click(function(){
+      if(clickedTile === null){
+        $(this).children().first().hide();
+        clickedTile = $(this).children().first().html();
+      } else if (clickedTile !== null){
+        $(this).children().first().html(clickedTile);
+        clickedTile = null;
+      }
+    });
 
     var testArrayRows = nannerLogic.checkArrayRows();
     var testArrayCols = nannerLogic.columnsToRows();
