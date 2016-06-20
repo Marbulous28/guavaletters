@@ -12,9 +12,9 @@ $(document).ready(function(){
     }
 
     $('.gameTile').click(function(){
-      if(clickedTile === null){
-        $(this).children().first().hide();
+      if(clickedTile === null && $(this).children().first().html() !== ""){
         clickedTile = $(this).children().first().html();
+        $(this).children().first().empty();
       } else if (clickedTile !== null){
         $(this).children().first().html(clickedTile);
         clickedTile = null;
