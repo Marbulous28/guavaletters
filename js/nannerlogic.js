@@ -25,7 +25,7 @@ function checkArray(){
 $(document).ready(function(){
 
   $('#run').click(function(){
-    var testArray = ['dog', 'cat', 'blrrg', 'biscuit', 'russia', 'panic'];
+    var testArray = checkArray();
     for(var i = 0; i < testArray.length; i++){
       var enteredWord = testArray[i];
       var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
