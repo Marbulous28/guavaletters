@@ -24,3 +24,15 @@ exports.NannerLogic.prototype.checkArray = function ( ) {
     };
     return this.ryansArray;
 }
+
+exports.NannerLogic.prototype.dealHand = function(){
+  var handArray = [];
+  var number;
+  var letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  for(var i = 0; i < 21; i++){
+    number = Math.floor((Math.random() * 25) + 1);
+    handArray.push(letterArray[number]);
+    console.log(handArray[20]);
+  }
+  return handArray;
+}
