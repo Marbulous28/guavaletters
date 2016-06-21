@@ -15,7 +15,7 @@ $(document).ready(function(){
       if(clickedTile === null && $(this).children().first().html() !== ""){
         clickedTile = $(this).children().first().html();
         $(this).children().first().empty();
-      } else if (clickedTile !== null){
+      } else if (clickedTile !== null && $(this).children().first().html() === ""){
         $(this).children().first().html(clickedTile);
         clickedTile = null;
       }
