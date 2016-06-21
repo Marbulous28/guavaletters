@@ -11,6 +11,7 @@ $(document).ready(function(){
       $('#handLetter'+j).html(newHand[j]);
     }
 
+    //  OLD LOGIC
     // $('.gameTile').click(function(){
     //   if(clickedTile === null && $(this).children().first().html() !== ""){
     //     clickedTile = $(this).children().first().html();
@@ -21,14 +22,26 @@ $(document).ready(function(){
     //   }
     // });
 
-    $('.gameTile').draggable();
+    // NEW LOGIC
+
+    $('.gameTile').draggable({
+      snap: '.boardTile',
+      snapMode: 'inner',
+      start: function(event, ui){
+        if($(this).parent().hasClass("boardTile")){
+          $(this).parent().text("");
+        }
+      }
+    });
     $('.boardTile').droppable({
+      scroll: true,
       accept: ".gameTile",
       hoverClass: 'drop-hover',
       tolerance: 'intersect',
       drop: function(event, ui){
+        $(this).empty();
         $(this).text(ui.draggable[0].innerText);
-        console.log(this);
+        console.log($(this).children().first());
       }
     });
 
