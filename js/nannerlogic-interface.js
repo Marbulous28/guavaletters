@@ -15,16 +15,23 @@ $(document).ready(function(){
       if(clickedTile === null && $(this).children().first().html() !== ""){
         clickedTile = $(this).children().first().html();
         $(this).children().first().empty();
-      } else if (clickedTile !== null){
+      } else if (clickedTile !== null && $(this).children().first().html() === ""){
         $(this).children().first().html(clickedTile);
         clickedTile = null;
       }
     });
 
+    $('#submit').click(function(){
+
+    for (var xx=1; xx<=30; xx++){
+      nannerLogic.masterArray.push($('#' + xx).text());
+    }
+    // nannerLogic.boardArray.push(hold);
     var testArrayRows = nannerLogic.checkArrayRows();
     var testArrayCols = nannerLogic.columnsToRows();
-    for(var i = 0; i < testArrayRows.length; i++){
-      var enteredWord = testArrayRows[i];
+    var testArrayAll = testArrayRows.push(testArrayCols);
+    for(var i = 0; i < testArrayAll.length; i++){
+      var enteredWord = testArrayAll[i];
       var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
       $.get(api, function(response){
         if(response.results.length !== 0){
@@ -33,4 +40,5 @@ $(document).ready(function(){
       });
     }
   });
+});
 });

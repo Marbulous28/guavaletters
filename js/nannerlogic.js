@@ -1,18 +1,29 @@
 exports.NannerLogic = function() {
-  this.rowArray1 = ['1', '3', null, "h", "b","t", null, "h","o","w",null];
-  this.rowArray2 = ['2', '4', "s","h","u","r",null,null,"u","p",null];
-  this.rowArray3 = ['5','6',"f","r","t","h","l","j","m","l",null];
-  this.masterArray = [this.rowArray1, this.rowArray2, this.rowArray3];
+  // this.row1 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row2 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row3 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row4 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row5 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row6 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row7 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row8 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row9 = [null, null, null, null, null, null, null, null, null, null];
+  // this.row10 = [null, null, null, null, null, null, null, null, null, null];
+  this.boardArray = ['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9', 'r10', '11', 'r12', 'r13', 'r14', 'r15', 'r16', 'r17', 'r18',
+                      '19', '20', '21'];
+  this.masterArray = [];
   this.wordArray = [];
   this.ryansArray = [];
+  this.columnArray = [];
   this.nullSwitch = false;
-  this.columnArray = []
 };
 
 exports.NannerLogic.prototype.checkArrayRows = function () {
+
+  // console.log(this.masterArray);
   for(var x = 0; x < this.masterArray.length; x ++){
     for(var i = 0; i < this.masterArray[x].length; i++){
-      if(this.masterArray[x][i] !== null && this.nullSwitch == true){
+      if(this.masterArray[x][i] !== null && this.nullSwitch === true){
         this.wordArray.push(this.masterArray[x][i]);
         this.nullSwitch = false;
       } else if (this.masterArray[x][i] !== null){
@@ -25,26 +36,25 @@ exports.NannerLogic.prototype.checkArrayRows = function () {
           this.wordArray = [];
         }
       }
-    };
-  };
-  return this.ryansArray;
-}
-
-exports.NannerLogic.prototype.columnsToRows = function () {
-  for (var i = 0; i < 11; i++) {
-    for (var x = 0; x < this.masterArray.length; x++) {
-      this.columnArray.push(this.masterArray[x][i]);
     }
   }
-return this.columnArray;
+  return this.ryansArray;
+};
 
+exports.NannerLogic.prototype.columnsToRows = function () {
+  for (var i = 0; i < 21; i++) {
+    for (var x = 0; x < 21; x+=2) {
+      this.columnArray.push(this.masterArray[parseInt(x.toString()+i.toString())]);
+      console.log(this.masterArray[parseInt(x.toString()+i.toString())]);
+    }
+  }
 
-for(var i = 0; i < this.columnArray.length; i++){
-  if(this.columnArray[i] !== null && this.nullSwitch == true){
-    this.wordArray.push(this.columnArray[i]);
+for(var ii = 0; ii < this.columnArray.length; ii++){
+  if(this.columnArray[ii] !== null && this.nullSwitch === true){
+    this.wordArray.push(this.columnArray[ii]);
     this.nullSwitch = false;
-  } else if (this.columnArray[i] !== null){
-    this.wordArray.push(this.columnArray[i]);
+  } else if (this.columnArray[ii] !== null){
+    this.wordArray.push(this.columnArray[ii]);
   } else {
     if(this.wordArray.length === 0){
       this.nullSwitch = true;
@@ -53,9 +63,9 @@ for(var i = 0; i < this.columnArray.length; i++){
       this.wordArray = [];
     }
   }
-};
-return this.ryansArray;
 }
+return this.ryansArray;
+};
 
 exports.NannerLogic.prototype.dealHand = function(){
   var handArray = [];
@@ -66,4 +76,4 @@ exports.NannerLogic.prototype.dealHand = function(){
     handArray.push(letterArray[number]);
   }
   return handArray;
-}
+};
