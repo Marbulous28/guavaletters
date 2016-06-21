@@ -15,6 +15,20 @@ button{
 .gameTile{
   border: 2px solid black;
   border-radius: 2px;
+  height: 45px;
+  width: 45px;
+  background-color: #eaeaea;
+  cursor: pointer;
+  margin: 1px;
+  color: black;
+  font-weight: bold;
+  padding-top: 10px;
+  font-size: 150%;
+}
+
+.testTile{
+  border: 2px solid black;
+  border-radius: 2px;
   height: 50px;
   width: 50px;
   background-color: #eaeaea;
@@ -24,6 +38,10 @@ button{
   font-weight: bold;
   padding-top: 10px;
   font-size: 150%;
+}
+
+.drop-hover{
+  border: 2px solid green;
 }
 
 .gameBoard{

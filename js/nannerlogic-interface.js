@@ -11,13 +11,24 @@ $(document).ready(function(){
       $('#handLetter'+j).html(newHand[j]);
     }
 
-    $('.gameTile').click(function(){
-      if(clickedTile === null && $(this).children().first().html() !== ""){
-        clickedTile = $(this).children().first().html();
-        $(this).children().first().empty();
-      } else if (clickedTile !== null && $(this).children().first().html() === ""){
-        $(this).children().first().html(clickedTile);
-        clickedTile = null;
+    // $('.gameTile').click(function(){
+    //   if(clickedTile === null && $(this).children().first().html() !== ""){
+    //     clickedTile = $(this).children().first().html();
+    //     $(this).children().first().empty();
+    //   } else if (clickedTile !== null && $(this).children().first().html() === ""){
+    //     $(this).children().first().html(clickedTile);
+    //     clickedTile = null;
+    //   }
+    // });
+
+    $('.gameTile').draggable();
+    $('#tester').droppable({
+      accept: ".gameTile",
+      hoverClass: 'drop-hover',
+      tolerance: 'intersect',
+      drop: function(event, ui){
+        $(this).text(ui.draggable[0].innerText);
+        console.log(this);
       }
     });
 
