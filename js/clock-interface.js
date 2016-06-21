@@ -2,6 +2,14 @@ var moment = require("./../bower_components/moment/moment.js");
 // var Clock = require("./../js/clock.js").Clock;
 
 $(document).ready(function() {
+
+  // var allSpansArray = document.querySelectorAll('.insertshitintothisspan');
+  // for (var i = 0; i < allSpansArray.length; i++) {
+  //   allSpansArray[i].id = (i + 1);
+  // }
+  // you can ignore me, I was just a bit of code used to give 400 spans unique ids.
+
+
   $("#timer").hide();
   var $counter = 0;
 
