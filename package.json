@@ -22,6 +22,8 @@
     "jshint": "^2.9.2",
     "vinyl-source-stream": "^1.1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.13.0"
+  },
   "description": "grams of banana"
 }
