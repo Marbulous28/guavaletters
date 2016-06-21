@@ -22,7 +22,7 @@ $(document).ready(function(){
     // });
 
     $('.gameTile').draggable();
-    $('#tester').droppable({
+    $('.boardTile').droppable({
       accept: ".gameTile",
       hoverClass: 'drop-hover',
       tolerance: 'intersect',
