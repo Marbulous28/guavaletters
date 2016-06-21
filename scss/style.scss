@@ -19,7 +19,7 @@ button{
   width: 50px;
   background-color: #eaeaea;
   cursor: pointer;
-  margin: 1px;
+  margin: 2px;
   color: black;
   font-weight: bold;
   padding-top: 10px;
@@ -29,4 +29,8 @@ button{
 .gameBoard{
   display: none;
   margin-top: 50px;
+}
+
+.hard-wrapper{
+  width: 1205px;
 }
