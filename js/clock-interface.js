@@ -14,8 +14,11 @@ $(document).ready(function() {
   var $counter = 0;
 
   var update = function(htmlElement) {
-    var currentTime = moment().hour(1).minute(0).second($counter--).format('HH : mm : ss');
+    var currentTime = moment().minute(10).second($counter--).format('mm : ss');
     htmlElement.text(currentTime);
+    if (currentTime === "00 : 00") {
+      $(".hard-wrapper").html('<iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+    }
   }
   var updateInterval;
 
