@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   // var allSpansArray = document.querySelectorAll('.insertshitintothisspan');
   // for (var i = 0; i < allSpansArray.length; i++) {
-  //   allSpansArray[i].id = (i + 1);
+  //   allSpansArray[i].className += "(i + 1)";
   // }
   // you can ignore me, I was just a bit of code used to give 400 spans unique ids.
 
