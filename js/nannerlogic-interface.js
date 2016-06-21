@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('.gameBoard').show();
     $('#run').hide();
     var newHand = nannerLogic.dealHand();
-    for(var j = 0; j < 21; j++){
+    for(var j = 0; j < 31; j++){
       $('#handLetter'+j).html(newHand[j]);
     }
 

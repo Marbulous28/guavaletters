@@ -59,7 +59,7 @@ return this.ryansArray;
 
 exports.NannerLogic.prototype.dealHand = function(){
   var handArray = [];
-  var handNumber = 20;
+  var handNumber = 30;
   var letterChoice = "";
 
   for(var i = 0; i < handNumber; i ++){
