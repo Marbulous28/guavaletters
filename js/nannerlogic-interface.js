@@ -89,14 +89,11 @@ $(document).ready(function(){
       var enteredWord = '';
       console.log(testArrayAll);
       for(var i = 0; i < testArrayAll.length; i++){
-        // console.log(testArrayAll[i], 'testArray');
         var notWordArray = [];
         if(testArrayAll[i].length > 1){
           enteredWord = testArrayAll[i];
-          // console.log('word:', enteredWord);
           var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
           $.get(api).then(function(response){
-            // console.log(api, enteredWord, i, testArrayAll);
             if(response.results.length !== 0){
               console.log(response, 'nice job')
             } else if (response.total === 0) {

@@ -1,42 +1,69 @@
 body{
-  background-color: #4B5FD6;
-  color: #eaeaea;
+  color: white;
+  background: rgba(255,214,51,1);
+  background: -moz-linear-gradient(top, rgba(255,214,51,1) 0%, rgba(255,112,76,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,214,51,1)), color-stop(100%, rgba(255,112,76,1)));
+  background: -webkit-linear-gradient(top, rgba(255,214,51,1) 0%, rgba(255,112,76,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,214,51,1) 0%, rgba(255,112,76,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,214,51,1) 0%, rgba(255,112,76,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,214,51,1) 0%, rgba(255,112,76,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd633', endColorstr='#ff704c', GradientType=0 );
 }
 
 button{
   color: black;
   padding-left: none;
 }
-
+h3{
+  margin-top: 0px;
+}
 .handDisplay{
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
+#title {
+  text-align: center;
+  font-family: 'Ceviche One', cursive;
+  font-size: 800%;
+  color: white;
+  border-bottom: solid 2px white;
+  padding-bottom: 20px;
+}
 .gameTile{
+  text-align: center;
+  padding-top: 3.5px;
   border-radius: 2px;
-  height: 25px;
+  height: 35px;
   width: 45px;
-  background-color: #FFAA11;
   cursor: pointer;
   margin: 1px;
   color: #eaeaea;
   font-weight: bold;
-  font-size: 120%;
+  font-size: 140%;
   z-index: 4;
+  text-shadow: #454545 1px 1px;
+  background: rgba(255,222,56,1);
+  background: -moz-linear-gradient(top, rgba(255,222,56,1) 0%, rgba(255,153,0,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,222,56,1)), color-stop(100%, rgba(255,153,0,1)));
+  background: -webkit-linear-gradient(top, rgba(255,222,56,1) 0%, rgba(255,153,0,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,222,56,1) 0%, rgba(255,153,0,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,222,56,1) 0%, rgba(255,153,0,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,222,56,1) 0%, rgba(255,153,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffde38', endColorstr='#ff9900', GradientType=0 );
 }
-
 .boardTile{
   border-radius: 2px;
-  height: 25px;
+  height: 35px;
   width: 45px;
-  background-color: #eaeaea;
-  margin: 1px;
+  background-color: white;
+  margin: 2px;
   color: black;
   font-weight: bold;
   font-size: 120%;
+  -webkit-box-shadow: inset -8px 8px 32px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -8px 8px 32px -12px rgba(0,0,0,0.75);
+  box-shadow: inset -8px 8px 32px -12px rgba(0,0,0,0.75);
 }
-
 .dump{
   border-radius: 2px;
   height: 77px;
@@ -50,30 +77,40 @@ button{
   font-size: 120%;
   border: 1px solid #eaeaea;
 }
-
 .ui-droppable-hover{
   background-color:maroon;
 }
-
 .drop-hover{
   border: 2px solid black;
 }
-
+.row{
+  padding-left: 10px;
+  margin-left: 100px;
+  margin-right: auto;
+}
 .gameBoard{
   display: none;
-  margin-top: 50px;
+  margin-top: 20px;
+  width: 100%;
 }
 .handDisplay{
   display: none;
 }
+.handrow {
+  margin-left: 0px;
+}
 #start{
   display: none;
 }
-
+#timer{
+  text-align: center;
+}
+#run{
+  text-align: center;
+}
 .hard-wrapper{
   width: 1205px;
 }
-
 iframe {
   width: 100%;
   height: 100%;
