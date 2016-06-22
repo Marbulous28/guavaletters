@@ -14,10 +14,14 @@ $(document).ready(function() {
   var $counter = 0;
 
   var update = function(htmlElement) {
-    var currentTime = moment().minute(10).second($counter--).format('mm : ss');
+    var currentTime = moment().minute(0).second(3 + $counter--).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
       $(".hard-wrapper").html('<iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+      var video = $(iframe);
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
     }
   }
   var updateInterval;
