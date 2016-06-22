@@ -11,28 +11,15 @@ $(document).ready(function(){
       $('#handLetter'+j).html(newHand[j]);
     }
 
-    //  OLD LOGIC
-    // $('.gameTile').click(function(){
-    //   if(clickedTile === null && $(this).children().first().html() !== ""){
-    //     clickedTile = $(this).children().first().html();
-    //     $(this).children().first().empty();
-    //   } else if (clickedTile !== null && $(this).children().first().html() === ""){
-    //     $(this).children().first().html(clickedTile);
-    //     clickedTile = null;
-    //   }
-    // });
 
-    // NEW LOGIC
+    // DRAG AND DROP LOGIC
 
     $('.gameTile').draggable({
       snap: '.boardTile',
       snapMode: 'inner',
-      start: function(event, ui){
-        if($(this).parent().hasClass("boardTile")){
-          $(this).parent().text("");
-        }
-      }
+      revert: 'invalid'
     });
+
     $('.boardTile').droppable({
       scroll: true,
       accept: ".gameTile",
@@ -40,10 +27,11 @@ $(document).ready(function(){
       tolerance: 'intersect',
       drop: function(event, ui){
         $(this).text(ui.draggable[0].innerText);
-        console.log($(this).children().first());
+        $(this).droppable('option', 'accept', ui.draggable);
       },
       out: function(event, ui){
         $(this).empty();
+        $(this).droppable('option', 'accept', '.gameTile');
       }
     });
 
