@@ -14,7 +14,7 @@ $(document).ready(function() {
   var $counter = 0;
 
   var update = function(htmlElement) {
-    var currentTime = moment().minute(0).second(3 + $counter--).format('mm : ss');
+    var currentTime = moment().minute(10).second($counter--).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
       $(".hard-wrapper").html('<iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
@@ -33,16 +33,23 @@ $(document).ready(function() {
   // var timer = new Clock();
   // timer.counter = 0;
   update($("time"));
-  $("#run").one("click", function() {
+  $("#run").click(function() {
     $("#timer").show();
     updateInterval = setInterval(update, 1000, $("time"));
-    $("#stop").one("click", function() {
+    $("#stop").click(function() {
       clearInterval(updateInterval);
-      // add another start listener.
-      // $("#start").one("click", function() {
-      //   updateInterval = setInterval(update, 1000, $("time"));
-      // });
+      $("#stop").hide();
+      $(".gameBoard").slideUp();
+      $(".handDisplay").slideUp();
+      $("#start").show();
     });
+    $("#start").click(function() {
+      updateInterval = setInterval(update, 1000, $("time"));
+      $("#stop").show();
+      $(".gameBoard").slideDown();
+      $(".handDisplay").slideDown();
+      $("#start").hide();
+    })
   });
 
 });

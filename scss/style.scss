@@ -5,6 +5,7 @@ body{
 
 button{
   color: black;
+  padding-left: none;
 }
 
 .handDisplay{
@@ -45,6 +46,9 @@ button{
   margin-top: 50px;
 }
 .handDisplay{
+  display: none;
+}
+#start{
   display: none;
 }
 
