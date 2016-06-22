@@ -31,6 +31,7 @@ $(document).ready(function(){
       hoverClass: 'drop-hover',
       tolerance: 'fit',
       drop: function(event, ui){
+        $.playSound('sounds/snap');
         $(this).text(ui.draggable[0].innerText);
         $(this).droppable('option', 'accept', ui.draggable);
       },

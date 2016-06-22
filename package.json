@@ -23,6 +23,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "firebase": "^3.0.5",
     "moment": "^2.13.0"
   },
   "description": "grams of banana"
