@@ -22,6 +22,9 @@ $(document).ready(function() {
   }
   var updateInterval;
 
+  // <iframe src="//coub.com/embed/409y8?muted=false&autostart=false&originalSize=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>
+  // this is the win link. enjoy that.
+
 
   // var timer = new Clock();
   // timer.counter = 0;
