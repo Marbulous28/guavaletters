@@ -39,9 +39,11 @@ $(document).ready(function(){
       hoverClass: 'drop-hover',
       tolerance: 'intersect',
       drop: function(event, ui){
-        $(this).empty();
         $(this).text(ui.draggable[0].innerText);
         console.log($(this).children().first());
+      },
+      out: function(event, ui){
+        $(this).empty();
       }
     });
 
