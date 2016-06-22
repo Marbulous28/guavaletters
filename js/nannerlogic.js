@@ -103,4 +103,4 @@ exports.NannerLogic.prototype.letterGenerator = function() {
     letterChoice = "E";
   }
   return letterChoice;
-}
+};
