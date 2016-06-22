@@ -5,13 +5,12 @@ exports.NannerLogic = function() {
   this.wordArray1 = [];
   this.ryansArray = [];
   this.petersArray = [];
-
   this.nullSwitch = false;
   this.nullSwitch1 = false;
 };
 
 exports.NannerLogic.prototype.checkArrayRows = function () {
-
+  this.ryansArray = [];
   for(var i = 0; i < this.masterRowArray.length; i++){
     if(this.masterRowArray[i] !== '' && this.nullSwitch === true){
       this.wordArray.push(this.masterRowArray[i]);
@@ -27,12 +26,12 @@ exports.NannerLogic.prototype.checkArrayRows = function () {
       }
     }
   }
+  this.masterRowArray = [];
   return this.ryansArray;
-  this.ryansArray=[];
 };
 
 exports.NannerLogic.prototype.columnsToRows = function () {
-
+  this.petersArray = [];
   for(var ii = 0; ii < this.masterColArray.length; ii++){
     if(this.masterColArray[ii] !== '' && this.nullSwitch1 === true){
       this.wordArray1.push(this.masterColArray[ii]);
@@ -48,8 +47,8 @@ exports.NannerLogic.prototype.columnsToRows = function () {
       }
     }
   }
+  this.masterColArray = [];
   return this.petersArray;
-  this.petersArray=[];
 };
 
 exports.NannerLogic.prototype.dealHand = function(){
@@ -73,8 +72,8 @@ exports.NannerLogic.prototype.letterGenerator = function() {
   var roll = this.RNG(133);
   var roll2 = 0;
   var letterChoice = "";
-  var firstLetters = ["Y", "W", "V", "P", "M", "H", "F", "B", "C"];
   var secondLetters = ["Z", "X", "Q", "K", "J"];
+  var firstLetters = ["Y", "W", "V", "P", "M", "H", "F", "B", "C"];
   var thirdLetters = ["U", "S", "D", "L"];
   var fourthLetters = ["T", "R"];
   var fifthLetters = ["O", "I", "A"];

@@ -1,6 +1,9 @@
 var NannerLogic = require("./../js/nannerlogic.js").NannerLogic;
 var clickedTile = null;
 var dumpCounter = 0;
+var testArrayRows = [];
+var testArrayCols = [];
+var testArrayAll = [];
 
 $(document).ready(function(){
   $('#run').click(function(){
@@ -64,10 +67,13 @@ $(document).ready(function(){
           $('.dump').hide()
         }
       }
-    })
+    });
 
     $('#submit').click(function(){
-
+      testArrayAll = [];
+      testArrayRows = [];
+      testArrayCols = [];
+      console.log("all:", testArrayAll, "Cols:", testArrayCols, "Rows:", testArrayRows);
       for (var xx=1; xx<=400; xx++){
         nannerLogic.masterRowArray.push($('#' + xx).text());
       }
@@ -77,22 +83,29 @@ $(document).ready(function(){
           nannerLogic.masterColArray.push($('.row'+ zz + ' .col' + yy).text());
         }
       }
-
-      var testArrayRows = nannerLogic.checkArrayRows();
-      var testArrayCols = nannerLogic.columnsToRows();
-      var testArrayAll = testArrayRows.concat(testArrayCols);
-      for(var i = 0; i < testArrayAll.length; i++){
-        var enteredWord = testArrayAll[i];
-        var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
-        if(enteredWord.length > 1){
-          $.get(api).then(function(response){
-            if(response.results.length !== 0){
-              console.log(response.results, 'nice effing job')
-            } else{
-            }
-          });
-        }
-      }
+      testArrayRows = nannerLogic.checkArrayRows();
+      testArrayCols = nannerLogic.columnsToRows();
+      testArrayAll = testArrayRows.concat(testArrayCols);
+      var enteredWord = '';
+      console.log(testArrayAll);
+      // for(var i = 0; i < testArrayAll.length; i++){
+      //   // console.log(testArrayAll[i], 'testArray');
+      //   var notWordArray = [];
+      //   if(testArrayAll[i].length > 1){
+      //     enteredWord = testArrayAll[i];
+      //     // console.log('word:', enteredWord);
+      //     var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
+      //     $.get(api).then(function(response){
+      //       // console.log(api, enteredWord, i, testArrayAll);
+      //       if(response.results.length !== 0){
+      //         // console.log(response, 'nice job')
+      //       } else if (response.total === 0) {
+      //         notWordArray.push(enteredWord);
+      //         // console.log(enteredWord, notWordArray);
+      //       }
+      //     });
+      //   }
+      // }
     });
   });
 });

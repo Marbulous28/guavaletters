@@ -16,9 +16,6 @@ function boardMaker() {
   rowArray.forEach(dynamicAppend);
 }
 
-
-
-
 $(document).ready(function() {
-  boardMaker();
+  $("#run").click(boardMaker());
 });
