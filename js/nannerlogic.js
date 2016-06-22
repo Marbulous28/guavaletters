@@ -5,13 +5,12 @@ exports.NannerLogic = function() {
   this.wordArray1 = [];
   this.ryansArray = [];
   this.petersArray = [];
-
   this.nullSwitch = false;
   this.nullSwitch1 = false;
 };
 
 exports.NannerLogic.prototype.checkArrayRows = function () {
-
+  this.ryansArray = [];
   for(var i = 0; i < this.masterRowArray.length; i++){
     if(this.masterRowArray[i] !== '' && this.nullSwitch === true){
       this.wordArray.push(this.masterRowArray[i]);
@@ -27,13 +26,12 @@ exports.NannerLogic.prototype.checkArrayRows = function () {
       }
     }
   }
+  this.masterRowArray = [];
   return this.ryansArray;
-  this.ryansArray=[];
-  this.masterRowArray=[];
 };
 
 exports.NannerLogic.prototype.columnsToRows = function () {
-
+  this.petersArray = [];
   for(var ii = 0; ii < this.masterColArray.length; ii++){
     if(this.masterColArray[ii] !== '' && this.nullSwitch1 === true){
       this.wordArray1.push(this.masterColArray[ii]);
@@ -49,9 +47,8 @@ exports.NannerLogic.prototype.columnsToRows = function () {
       }
     }
   }
+  this.masterColArray = [];
   return this.petersArray;
-  this.petersArray=[];
-  this.masterColArray=[];
 };
 
 exports.NannerLogic.prototype.dealHand = function(){
@@ -105,4 +102,4 @@ exports.NannerLogic.prototype.letterGenerator = function() {
     letterChoice = "E";
   }
   return letterChoice;
-}
+};
