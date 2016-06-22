@@ -29,6 +29,7 @@ exports.NannerLogic.prototype.checkArrayRows = function () {
   }
   return this.ryansArray;
   this.ryansArray=[];
+  this.masterRowArray=[];
 };
 
 exports.NannerLogic.prototype.columnsToRows = function () {
@@ -50,6 +51,7 @@ exports.NannerLogic.prototype.columnsToRows = function () {
   }
   return this.petersArray;
   this.petersArray=[];
+  this.masterColArray=[];
 };
 
 exports.NannerLogic.prototype.dealHand = function(){
@@ -73,8 +75,8 @@ exports.NannerLogic.prototype.letterGenerator = function() {
   var roll = this.RNG(133);
   var roll2 = 0;
   var letterChoice = "";
-  var firstLetters = ["Y", "W", "V", "P", "M", "H", "F", "B", "C"];
   var secondLetters = ["Z", "X", "Q", "K", "J"];
+  var firstLetters = ["Y", "W", "V", "P", "M", "H", "F", "B", "C"];
   var thirdLetters = ["U", "S", "D", "L"];
   var fourthLetters = ["T", "R"];
   var fifthLetters = ["O", "I", "A"];
