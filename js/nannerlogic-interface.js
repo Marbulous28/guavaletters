@@ -45,8 +45,22 @@ $(document).ready(function(){
         if (dumpCounter < 2) {
           $(ui.draggable).remove();
           dumpCounter++;
+          var newLetter = nannerLogic.letterGenerator();
+          $('#handRow4').append("<span id='newTile" + dumpCounter + "' class='gameTile col-xs-1'>" + newLetter + "</span>");
+          $('.gameTile').draggable({
+            snap: '.boardTile',
+            snapMode: 'inner',
+            revert: 'invalid'
+          });
         } else if (dumpCounter === 2){
           $(ui.draggable).remove();
+          var newLetter = nannerLogic.letterGenerator();
+          $('#handRow4').append("<span id='newTile" + dumpCounter + "' class='gameTile col-xs-1'>" + newLetter + "</span>");
+          $('.gameTile').draggable({
+            snap: '.boardTile',
+            snapMode: 'inner',
+            revert: 'invalid'
+          });
           $('.dump').hide()
         }
       }
