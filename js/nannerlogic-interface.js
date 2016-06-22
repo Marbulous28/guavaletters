@@ -1,5 +1,6 @@
 var NannerLogic = require("./../js/nannerlogic.js").NannerLogic;
 var clickedTile = null;
+var dumpCounter = 0;
 
 $(document).ready(function(){
   $('#run').click(function(){
@@ -25,7 +26,7 @@ $(document).ready(function(){
       scroll: true,
       accept: ".gameTile",
       hoverClass: 'drop-hover',
-      tolerance: 'intersect',
+      tolerance: 'fit',
       drop: function(event, ui){
         $(this).text(ui.draggable[0].innerText);
         $(this).droppable('option', 'accept', ui.draggable);
@@ -35,6 +36,21 @@ $(document).ready(function(){
         $(this).droppable('option', 'accept', '.gameTile');
       }
     });
+
+    $('.dump').droppable({
+      accept: ".gameTile",
+      tolerance: "intersect",
+      drop: function(event, ui){
+        console.log(ui);
+        if (dumpCounter < 2) {
+          $(ui.draggable).remove();
+          dumpCounter++;
+        } else if (dumpCounter === 2){
+          $(ui.draggable).remove();
+          $('.dump').hide()
+        }
+      }
+    })
 
     $('#submit').click(function(){
 

@@ -22,7 +22,7 @@ button{
   color: #eaeaea;
   font-weight: bold;
   font-size: 120%;
-
+  z-index: 4;
 }
 
 .boardTile{
@@ -34,6 +34,24 @@ button{
   color: black;
   font-weight: bold;
   font-size: 120%;
+}
+
+.dump{
+  border-radius: 2px;
+  height: 77px;
+  width: 150px;
+  background-color: red;
+  padding-top: 20px;
+  margin-top:60px;
+  color: #eaeaea;
+  font-weight: bold;
+  text-align: center;
+  font-size: 120%;
+  border: 1px solid #eaeaea;
+}
+
+.ui-droppable-hover{
+  background-color:maroon;
 }
 
 .drop-hover{
