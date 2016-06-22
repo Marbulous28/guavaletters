@@ -5,6 +5,7 @@ body{
 
 button{
   color: black;
+  padding-left: none;
 }
 
 .handDisplay{
@@ -47,7 +48,15 @@ button{
 .handDisplay{
   display: none;
 }
+#start{
+  display: none;
+}
 
 .hard-wrapper{
   width: 1205px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
 }

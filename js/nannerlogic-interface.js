@@ -4,8 +4,8 @@ var clickedTile = null;
 $(document).ready(function(){
   $('#run').click(function(){
     var nannerLogic = new NannerLogic();
-    $('.gameBoard').show();
-    $('.handDisplay').show();
+    $('.gameBoard').slideDown();
+    $('.handDisplay').slideDown();
     $('#run').hide();
     var newHand = nannerLogic.dealHand();
     for(var j = 0; j < 31; j++){
