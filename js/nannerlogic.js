@@ -51,6 +51,7 @@ exports.NannerLogic.prototype.columnsToRows = function () {
   return this.petersArray;
 };
 
+// function for generating the player's hand
 exports.NannerLogic.prototype.dealHand = function(){
   var handArray = [];
   var handNumber = 30;
@@ -63,10 +64,46 @@ exports.NannerLogic.prototype.dealHand = function(){
   return handArray;
 };
 
+
+// Checks that all the letters were used
+exports.NannerLogic.prototype.checkLetters = function(testArrayCols) {
+  var word = "";
+  var letters;
+  var lettersList = [];
+  for (var i = 0; i < testArrayCols.length; i ++) {
+    word = testArrayCols[i];
+    letters = word.split("");
+    for (var ii = 0; ii < letters.length; ii++) {
+      lettersList.push(letters[ii]);
+    };
+  };
+  if (lettersList.length === 30) {
+    return true;
+  } else {
+    return false;
+  };
+};
+
+// Checks if letters are connected
+exports.NannerLogic.prototype.lettersConnected = function() {
+  for (var i = 0; i < this.masterRowArray.length; i ++) {
+    if (this.masterRowArray[i] === "") {
+      console.log("empty");
+    } else if (this.masterRowArray[i] !== "" && (this.masterRowArray[(i - 1)] !== "" || this.masterRowArray[(i + 1)] !== "" || this.masterRowArray[(i - 20)] !== "" || this.masterRowArray[i + 20] !== "")){
+      console.log("good");
+    } else {
+      return false;
+    };
+  }
+  return true;
+}
+
+// RNG function
 exports.NannerLogic.prototype.RNG = function(max) {
   return Math.floor((Math.random() * max) + 1);
 };
 
+//RNG for generating hand
 exports.NannerLogic.prototype.letterGenerator = function() {
 
   var roll = this.RNG(133);
