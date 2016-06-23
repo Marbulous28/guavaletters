@@ -99,11 +99,11 @@ $(document).ready(function(){
   //Clock
   $("#timer").hide();
   var update = function(htmlElement) {
-    currentTime = moment().minute(5).second($counter--).format('mm : ss');
+    currentTime = moment().minute(0).second(2 + $counter--).format('mm : ss');
     scoreTime = moment().minute(0).second(scoreCounter++).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
-      $(".hard-wrapper").html('<iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+      $(".hard-wrapper").html('<h3 id="title">YOU LOSE.</h3><iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
       var video = $(iframe);
       if (video.requestFullscreen) {
         video.requestFullscreen();
@@ -156,7 +156,7 @@ $(document).ready(function(){
     testArrayAll = testArrayRows.concat(testArrayCols);
     var enteredWord = '';
 
-    if (lettersConnected && lettersUsed) {
+    if (true) {
       $.get("./../../SOWPODS.txt").then(function(response) {
         var dict = response.split("\n");
         for(var i = 0; i < testArrayAll.length; i++){
@@ -171,12 +171,13 @@ $(document).ready(function(){
           }
         }
       });
-      if (notWordArray.length === 0) {
+      if (true) {
         clearInterval(updateInterval);
         $('#finalTime').append(scoreTime);
         $('.gameBoard').slideUp();
         $('.handDisplay').slideUp();
         $("#timer").slideUp();
+        $("#end-screen").append('<iframe src="//coub.com/embed/409y8?muted=false&autostart=true&originalSize=false&startWithHD=true" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>');
         $('#end-screen').slideDown();
         // win condition
       }

@@ -163,8 +163,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46f0fc', end
   width: 1205px;
 }
 iframe {
+  margin-top: 0;
   width: 100%;
-  height: 100%;
+  height: 800px;
 }
 
 @media screen and (max-width: 1300px) {
