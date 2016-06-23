@@ -77,6 +77,7 @@ $(document).ready(function(){
     testArrayAll = [];
     testArrayRows = [];
     testArrayCols = [];
+    var notWordArray = [];
     for (var xx=1; xx<=400; xx++){
       nannerLogic.masterRowArray.push($('#' + xx).text());
     }
@@ -97,13 +98,10 @@ $(document).ready(function(){
       $.get("./../../SOWPODS.txt").then(function(response) {
         var dict = response.split("\n");
         for(var i = 0; i < testArrayAll.length; i++){
-          var notWordArray = [];
           if(testArrayAll[i].length > 1){
             enteredWord = testArrayAll[i];
             if( dict.indexOf(enteredWord) !== -1 ){
               console.log(enteredWord + ' is a real word. nice job!');
-              $('gameBoard').hide();
-              $('#end-screen').show();
             } else {
               notWordArray.push(enteredWord);
               console.log(enteredWord, notWordArray);
@@ -111,7 +109,20 @@ $(document).ready(function(){
           }
         }
       });
+      if ( notWordArray.isEmpty() ) {
+        console.log("oh baby a triple");
+        $('gameBoard').hide();
+        $('#end-screen').show();
+        // win condition
+      }
+    } else {
+      console.log("please use all letters and make sure your words are all connected.");
+      // replace this with an actual alert screen.
     }
   });
 
 }); //ready
+
+// win condition:
+// $('gameBoard').hide();
+// $('#end-screen').show();
