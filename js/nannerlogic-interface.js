@@ -24,7 +24,7 @@ function writeUserData() {
 
 $(document).ready(function(){
   $('#run').click(function(){
-  $.playSound('sounds/wow');
+  $.playSound('sounds/wow2');
     $('.intro-screen').hide();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -129,4 +129,8 @@ $(document).ready(function(){
     }
   });
 
+  $('#highScoreForm').submit(function(event){
+    event.preventDefault();
+
+  });
 }); //ready
