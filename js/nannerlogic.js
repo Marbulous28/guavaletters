@@ -75,13 +75,13 @@ exports.NannerLogic.prototype.checkLetters = function(testArrayCols) {
     letters = word.split("");
     for (var ii = 0; ii < letters.length; ii++) {
       lettersList.push(letters[ii]);
-    };
-  };
+    }
+  }
   if (lettersList.length === 30) {
     return true;
   } else {
     return false;
-  };
+  }
 };
 
 // Checks if letters are connected
@@ -93,10 +93,10 @@ exports.NannerLogic.prototype.lettersConnected = function() {
       console.log("good");
     } else {
       return false;
-    };
+    }
   }
   return true;
-}
+};
 
 // RNG function
 exports.NannerLogic.prototype.RNG = function(max) {
