@@ -74,7 +74,6 @@ $(document).ready(function(){
       testArrayAll = [];
       testArrayRows = [];
       testArrayCols = [];
-      console.log("all:", testArrayAll, "Cols:", testArrayCols, "Rows:", testArrayRows);
       for (var xx=1; xx<=400; xx++){
         nannerLogic.masterRowArray.push($('#' + xx).text());
       }
@@ -84,10 +83,16 @@ $(document).ready(function(){
           nannerLogic.masterColArray.push($('.row'+ zz + ' .col' + yy).text());
         }
       }
+      var lettersConnected = nannerLogic.lettersConnected();
+      console.log(lettersConnected);
+      console.log(nannerLogic.masterRowArray, "row array");
       testArrayRows = nannerLogic.checkArrayRows();
       testArrayCols = nannerLogic.columnsToRows();
+      var lettersUsed = nannerLogic.checkLetters(testArrayCols);
+      console.log(lettersUsed, "are the letters used?");
       testArrayAll = testArrayRows.concat(testArrayCols);
       var enteredWord = '';
+
       console.log(testArrayAll);
       for(var i = 0; i < testArrayAll.length; i++){
         var notWordArray = [];
