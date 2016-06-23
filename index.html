@@ -1,78 +1,79 @@
 
 <html>
-  <head>
-    <link href='https://fonts.googleapis.com/css?family=Ceviche+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="build/css/vendor.css">
-    <link rel="stylesheet" href="build/css/style.css">
-    <script src="build/js/vendor.min.js"></script>
-    <script type="text/javascript" src="build/js/app.js"></script>
-    <script   src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js"   integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo="   crossorigin="anonymous"></script>
-    <script src='https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js'></script>
-    <title>Guavagrams</title>
-  </head>
-  <body>
-    <div class="container hard-wrapper">
-      <h1 id="title">Guavagrams</h1>
-      <div id='run'>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Ceviche+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="build/css/vendor.css">
+  <link rel="stylesheet" href="build/css/style.css">
+  <script src="build/js/vendor.min.js"></script>
+  <script type="text/javascript" src="build/js/app.js"></script>
+  <script   src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js"   integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo="   crossorigin="anonymous"></script>
+  <script src='https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js'></script>
+  <title>Guavagrams</title>
+</head>
+<body>
+  <div class="container hard-wrapper">
+    <h1 id="title">Guavagrams</h1>
+    <div id='run'>
       <button class="btn btn-warning">Start!</button>
     </div>
-      <div id="timer" style="display: none;">
-        <h1><time>10 : 00</time></h1>
-        <button id="start" class="btn btn-warning">Continue</button>
-        <button id="stop" class="btn btn-warning">Pause</button>
-      </div>
-      <div id='board-wrap'>
+    <!-- <button id="dictTest" class="btn btn-danger">Test That Dict</button> -->
+    <div id="timer" style="display: none;">
+      <h1><time>10 : 00</time></h1>
+      <button id="start" class="btn btn-warning">Continue</button>
+      <button id="stop" class="btn btn-warning">Pause</button>
+    </div>
+    <div id='board-wrap'>
       <div class="gameBoard">
         <!-- game board goes here dynamically on $(document).ready() -->
       </div>
     </div>
-      <div class="row">
-        <div class="handDisplay">
-          <div class='col-xs-6'>
-            <h3>Your Hand</h3>
-            <div class="row handRow" id="handRow1">
-              <span id="handLetter0" class="col-xs-1 gameTile"></span>
-              <span id="handLetter1" class="col-xs-1 gameTile"></span>
-              <span id="handLetter2" class="col-xs-1 gameTile"></span>
-              <span id="handLetter3" class="col-xs-1 gameTile"></span>
-              <span id="handLetter4" class="col-xs-1 gameTile"></span>
-              <span id="handLetter5" class="col-xs-1 gameTile"></span>
-              <span id="handLetter6" class="col-xs-1 gameTile"></span>
-              <span id="handLetter7" class="col-xs-1 gameTile"></span>
-              <span id="handLetter8" class="col-xs-1 gameTile"></span>
-              <span id="handLetter9" class="col-xs-1 gameTile"></span>
-            </div>
-            <div class="row handRow" id="handRow2">
-              <span id="handLetter10" class="col-xs-1 gameTile"></span>
-              <span id="handLetter11" class="col-xs-1 gameTile"></span>
-              <span id="handLetter12" class="col-xs-1 gameTile"></span>
-              <span id="handLetter13" class="col-xs-1 gameTile"></span>
-              <span id="handLetter14" class="col-xs-1 gameTile"></span>
-              <span id="handLetter15" class="col-xs-1 gameTile"></span>
-              <span id="handLetter16" class="col-xs-1 gameTile"></span>
-              <span id="handLetter17" class="col-xs-1 gameTile"></span>
-              <span id="handLetter18" class="col-xs-1 gameTile"></span>
-              <span id="handLetter19" class="col-xs-1 gameTile"></span>
-            </div>
-            <div class="row handRow" id="handRow3">
-              <span id="handLetter20" class="col-xs-1 gameTile"></span>
-              <span id="handLetter21" class="col-xs-1 gameTile"></span>
-              <span id="handLetter22" class="col-xs-1 gameTile"></span>
-              <span id="handLetter23" class="col-xs-1 gameTile"></span>
-              <span id="handLetter24" class="col-xs-1 gameTile"></span>
-              <span id="handLetter25" class="col-xs-1 gameTile"></span>
-              <span id="handLetter26" class="col-xs-1 gameTile"></span>
-              <span id="handLetter27" class="col-xs-1 gameTile"></span>
-              <span id="handLetter28" class="col-xs-1 gameTile"></span>
-              <span id="handLetter29" class="col-xs-1 gameTile"></span>
-            </div>
-            <div class="row" id="handRow4">
-            </div>
-            <button id='submit'>Submit</button>
+    <div class="row">
+      <div class="handDisplay">
+        <div class='col-xs-6'>
+          <h3>Your Hand</h3>
+          <div class="row handRow" id="handRow1">
+            <span id="handLetter0" class="col-xs-1 gameTile"></span>
+            <span id="handLetter1" class="col-xs-1 gameTile"></span>
+            <span id="handLetter2" class="col-xs-1 gameTile"></span>
+            <span id="handLetter3" class="col-xs-1 gameTile"></span>
+            <span id="handLetter4" class="col-xs-1 gameTile"></span>
+            <span id="handLetter5" class="col-xs-1 gameTile"></span>
+            <span id="handLetter6" class="col-xs-1 gameTile"></span>
+            <span id="handLetter7" class="col-xs-1 gameTile"></span>
+            <span id="handLetter8" class="col-xs-1 gameTile"></span>
+            <span id="handLetter9" class="col-xs-1 gameTile"></span>
           </div>
-          <div class="col-xs-4">
-            <div class="dump">Dump City</div>
+          <div class="row handRow" id="handRow2">
+            <span id="handLetter10" class="col-xs-1 gameTile"></span>
+            <span id="handLetter11" class="col-xs-1 gameTile"></span>
+            <span id="handLetter12" class="col-xs-1 gameTile"></span>
+            <span id="handLetter13" class="col-xs-1 gameTile"></span>
+            <span id="handLetter14" class="col-xs-1 gameTile"></span>
+            <span id="handLetter15" class="col-xs-1 gameTile"></span>
+            <span id="handLetter16" class="col-xs-1 gameTile"></span>
+            <span id="handLetter17" class="col-xs-1 gameTile"></span>
+            <span id="handLetter18" class="col-xs-1 gameTile"></span>
+            <span id="handLetter19" class="col-xs-1 gameTile"></span>
           </div>
+          <div class="row handRow" id="handRow3">
+            <span id="handLetter20" class="col-xs-1 gameTile"></span>
+            <span id="handLetter21" class="col-xs-1 gameTile"></span>
+            <span id="handLetter22" class="col-xs-1 gameTile"></span>
+            <span id="handLetter23" class="col-xs-1 gameTile"></span>
+            <span id="handLetter24" class="col-xs-1 gameTile"></span>
+            <span id="handLetter25" class="col-xs-1 gameTile"></span>
+            <span id="handLetter26" class="col-xs-1 gameTile"></span>
+            <span id="handLetter27" class="col-xs-1 gameTile"></span>
+            <span id="handLetter28" class="col-xs-1 gameTile"></span>
+            <span id="handLetter29" class="col-xs-1 gameTile"></span>
+          </div>
+          <div class="row" id="handRow4">
+          </div>
+          <button id='submit'>Submit</button>
+        </div>
+        <div class="col-xs-4">
+          <div class="dump">Dump City</div>
+        </div>
       </div>
     </div>
   </div>
