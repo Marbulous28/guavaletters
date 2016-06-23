@@ -126,8 +126,10 @@ $(document).ready(function(){
       });
       if ( notWordArray.isEmpty() ) {
         console.log("oh baby a triple");
-        $('gameBoard').hide();
-        $('#end-screen').show();
+        $('.gameBoard').slideUp();
+        $('.handDisplay').slideUp();
+        $("#timer").slideUp();
+        $('#end-screen').slideDown();
         // win condition
       }
     } else {
@@ -135,7 +137,6 @@ $(document).ready(function(){
       // replace this with an actual alert screen.
     }
   });
-
 }); //ready
 
 // win condition:

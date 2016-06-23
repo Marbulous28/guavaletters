@@ -1,4 +1,8 @@
 var moment = require("./../bower_components/moment/moment.js");
+var $counter = 0;
+var scoreCounter = 0;
+var currentTime = moment().minute(20).second($counter--).format('mm : ss');
+var scoreTime = moment().minute(0).second(scoreCounter++).format('mm : ss');
 // var Clock = require("./../js/clock.js").Clock;
 
 $(document).ready(function() {
@@ -9,9 +13,9 @@ $(document).ready(function() {
   // }
   // you can ignore me, I was just a bit of code used to give 400 spans unique ids.
   $("#timer").hide();
-  var $counter = 0;
   var update = function(htmlElement) {
-    var currentTime = moment().minute(20).second($counter--).format('mm : ss');
+    currentTime = moment().minute(20).second($counter--).format('mm : ss');
+    scoreTime = moment().minute(0).second(scoreCounter++).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
       $(".hard-wrapper").html('<iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
