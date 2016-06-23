@@ -4,9 +4,26 @@ var dumpCounter = 0;
 var testArrayRows = [];
 var testArrayCols = [];
 var testArrayAll = [];
+var firebase = require("firebase/app");
+var database = require("firebase/database");
+var config = {
+  apiKey: "AIzaSyC13jyPWJjDxYQKTelaBALIOs8Ky-g_ggY",
+  authDomain: "guavagrams.firebaseapp.com",
+  databaseURL: "https://guavagrams.firebaseio.com",
+  storageBucket: "guavagrams.appspot.com",
+};
+firebase.initializeApp(config);
+function writeUserData() {
+  firebase.database().ref('scores/1').set({
+    name: "balls",
+    score: 90
+  });
+}
+
 
 $(document).ready(function(){
   $('#run').click(function(){
+    writeUserData();
     var nannerLogic = new NannerLogic();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -15,9 +32,6 @@ $(document).ready(function(){
     for(var j = 0; j < 31; j++){
       $('#handLetter'+j).html(newHand[j]);
     }
-
-
-    // DRAG AND DROP LOGIC
 
     $('.gameTile').draggable({
       snap: '.boardTile',
