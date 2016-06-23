@@ -9,32 +9,47 @@
     <script   src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js"   integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo="   crossorigin="anonymous"></script>
     <script src='https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js'></script>
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-    <!-- <script>
-      // Initialize Firebase
-
-    </script> -->
     <title>Guavagrams</title>
   </head>
   <body>
     <div class="container hard-wrapper">
       <h1 id="title">Guavagrams</h1>
-      <div id='run'>
-      <button class="btn btn-warning">Start!</button>
-    </div>
       <div id="timer" style="display: none;">
         <h1><time>10 : 00</time></h1>
         <button id="start" class="btn btn-warning">Continue</button>
         <button id="stop" class="btn btn-warning">Pause</button>
       </div>
-      <div id='board-wrap'>
-      <div class="gameBoard">
-        <!-- game board goes here dynamically on $(document).ready() -->
+      <div class="container intro-screen">
+        <h1 class='intro-title'>Welcome to Guavagrams!</h1>
+        <div class="info-box">
+          <p class='intro-info'>
+            The goal of the game is to play all of your letter tiles as fast as you can.
+          </p>
+          <p class='intro-info'>
+            All of your words must be connected like a cross-word. You may rearrange letters as often as you like.
+          </p>
+          <p class='intro-info'>
+            If you find a letter you cannot use, drop it into the 'Dump'. If you do, you'll recieve three additional letters.
+          </p>
+          <p class='intro-info'>
+            When you are done press the 'Done!' button to check your words.
+          </p>
+          <p class='intro-info'>
+            Compete for the high score and have fun!
+          </p>
+        </div>
       </div>
-    </div>
+      <div id='run'>
+        <button class="btn btn-info">Start!</button>
+      </div>
+      <div id='board-wrap'>
+        <div class="gameBoard">
+          <!-- game board goes here dynamically on $(document).ready() -->
+        </div>
+      </div>
       <div class="row">
         <div class="handDisplay">
           <div class='col-xs-6'>
-            <h3>Your Hand</h3>
             <div class="row handRow" id="handRow1">
               <span id="handLetter0" class="col-xs-1 gameTile"></span>
               <span id="handLetter1" class="col-xs-1 gameTile"></span>
@@ -71,15 +86,31 @@
               <span id="handLetter28" class="col-xs-1 gameTile"></span>
               <span id="handLetter29" class="col-xs-1 gameTile"></span>
             </div>
-            <div class="row" id="handRow4">
+            <div class='row handRow' id='handRow4'>
             </div>
-            <button id='submit'>Submit</button>
           </div>
-          <div class="col-xs-4">
-            <div class="dump">Dump City</div>
+          <div class="col-xs-2 dumpCity">
+            <div class="dump">Dump</div>
           </div>
+          <div id='submitButton' class='col-xs-1'>
+            <button id='submit' class="btn btn-info">Done!</button>
+          </div>
+        </div>
+      </div>
+      <div id="end-screen">
+        <div class="scoreboard-display">
+          <h3 class='score-title'>
+            Best Times
+          </h3>
+          <ul id='scoreboard'>
+            <li class='name'>Sam <span class='time'>23s</span></li>
+            <li class='name'>Nick <span class='time'>27s</span></li>
+            <li class='name'>Ryan <span class='time'>272s</span></li>
+            <li class='name'>Peter <span class='time'>387s</span></li>
+            <li class='name'>Nick <span class='time'>789s</span></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

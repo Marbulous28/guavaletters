@@ -23,7 +23,8 @@ function writeUserData() {
 
 $(document).ready(function(){
   $('#run').click(function(){
-    writeUserData();
+  $.playSound('sounds/wow');
+    $('.intro-screen').hide();
     var nannerLogic = new NannerLogic();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -88,7 +89,6 @@ $(document).ready(function(){
       testArrayAll = [];
       testArrayRows = [];
       testArrayCols = [];
-      console.log("all:", testArrayAll, "Cols:", testArrayCols, "Rows:", testArrayRows);
       for (var xx=1; xx<=400; xx++){
         nannerLogic.masterRowArray.push($('#' + xx).text());
       }
@@ -111,6 +111,8 @@ $(document).ready(function(){
           $.get(api).then(function(response){
             if(response.results.length !== 0){
               console.log(response, 'nice job')
+              $('gameBoard').hide();
+              $('#end-screen').show();
             } else if (response.total === 0) {
               notWordArray.push(enteredWord);
               console.log(enteredWord, notWordArray);
