@@ -7,6 +7,7 @@ var testArrayAll = [];
 
 $(document).ready(function(){
   $('#run').click(function(){
+    $('.intro-screen').hide();
     var nannerLogic = new NannerLogic();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -15,8 +16,6 @@ $(document).ready(function(){
     for(var j = 0; j < 31; j++){
       $('#handLetter'+j).html(newHand[j]);
     }
-
-
     // DRAG AND DROP LOGIC
 
     $('.gameTile').draggable({
@@ -102,6 +101,8 @@ $(document).ready(function(){
           $.get(api).then(function(response){
             if(response.results.length !== 0){
               console.log(response, 'nice job')
+              $('gameBoard').hide();
+              $('#end-screen').show();
             } else if (response.total === 0) {
               notWordArray.push(enteredWord);
               console.log(enteredWord, notWordArray);

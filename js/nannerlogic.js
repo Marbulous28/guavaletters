@@ -98,12 +98,12 @@ exports.NannerLogic.prototype.lettersConnected = function() {
   return true;
 }
 
-// RNG for generating letters
-
+// RNG function
 exports.NannerLogic.prototype.RNG = function(max) {
   return Math.floor((Math.random() * max) + 1);
 };
 
+//RNG for generating hand
 exports.NannerLogic.prototype.letterGenerator = function() {
 
   var roll = this.RNG(133);
