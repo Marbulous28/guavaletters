@@ -17,6 +17,18 @@ button{
 h3{
   margin-top: 0px;
 }
+.intro-title{
+  text-align: center;
+}
+.intro-info{
+  margin-left: 100px;
+  font-size: 16pt;
+}
+.info-box{
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+}
 .handDisplay{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -28,6 +40,7 @@ h3{
   color: white;
   border-bottom: solid 2px white;
   padding-bottom: 20px;
+  text-shadow: -2px 2px #ff9900;
 }
 .gameTile{
   text-align: center;
@@ -66,22 +79,54 @@ h3{
 }
 .dump{
   border-radius: 2px;
-  height: 77px;
+  height: 105px;
   width: 150px;
-  background-color: transparent;;
-  padding-top: 20px;
-  margin-top:60px;
+  padding-top: 38px;
+  background-color: transparent;
   color: #eaeaea;
   font-weight: bold;
   text-align: center;
   font-size: 120%;
   border: 1px solid #eaeaea;
 }
+
+#submitButton {
+  padding-top: 30px;
+}
+.btn-warning{
+  background: rgba(70,240,252,1);
+background: -moz-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(70,240,252,1)), color-stop(100%, rgba(105,155,240,1)));
+background: -webkit-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+background: -o-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+background: -ms-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+background: linear-gradient(to bottom, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46f0fc', endColorstr='#699bf0', GradientType=0 );
+
+}
+.btn-info {
+  height: 50px;
+  width: 100px;
+  font-size: 16pt;
+  text-align: center;
+  margin-left: 30px;
+  background: rgba(70,240,252,1);
+  background: -moz-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(70,240,252,1)), color-stop(100%, rgba(105,155,240,1)));
+  background: -webkit-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+  background: -o-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+  background: -ms-linear-gradient(top, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+  background: linear-gradient(to bottom, rgba(70,240,252,1) 0%, rgba(105,155,240,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46f0fc', endColorstr='#699bf0', GradientType=0 );
+}
 .ui-droppable-hover{
-  background-color:maroon;
+  background-color: maroon;
 }
 .drop-hover{
   border: 2px solid black;
+}
+.dumpCity{
+
 }
 .row{
   padding-left: 10px;
@@ -99,11 +144,19 @@ h3{
 .handrow {
   margin-left: 0px;
 }
+#end-screen{
+  display: none;
+}
+.scoreboard-display{
+  margin-left: auto;
+  margin-right: auto;
+}
 #start{
   display: none;
 }
 #timer{
   text-align: center;
+  text-shadow: -2px 2px #ff9900;
 }
 #run{
   text-align: center;
