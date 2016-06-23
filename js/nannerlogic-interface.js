@@ -1,9 +1,11 @@
 var NannerLogic = require("./../js/nannerlogic.js").NannerLogic;
+var nannerLogic = new NannerLogic();
 var clickedTile = null;
 var dumpCounter = 0;
 var testArrayRows = [];
 var testArrayCols = [];
 var testArrayAll = [];
+var newLetter;
 var firebase = require("firebase/app");
 var database = require("firebase/database");
 var config = {
@@ -20,12 +22,10 @@ function writeUserData() {
   });
 }
 
-
 $(document).ready(function(){
   $('#run').click(function(){
   $.playSound('sounds/wow');
     $('.intro-screen').hide();
-    var nannerLogic = new NannerLogic();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
     $('#run').hide();
@@ -64,7 +64,7 @@ $(document).ready(function(){
         if (dumpCounter < 2) {
           $(ui.draggable).remove();
           dumpCounter++;
-          var newLetter = nannerLogic.letterGenerator();
+          newLetter = nannerLogic.letterGenerator();
           $('#handRow4').append("<span id='newTile" + dumpCounter + "' class='gameTile col-xs-1'>" + newLetter + "</span>");
           $('.gameTile').draggable({
             snap: '.boardTile',
@@ -73,53 +73,60 @@ $(document).ready(function(){
           });
         } else if (dumpCounter === 2){
           $(ui.draggable).remove();
-          var newLetter = nannerLogic.letterGenerator();
+          newLetter = nannerLogic.letterGenerator();
           $('#handRow4').append("<span id='newTile" + dumpCounter + "' class='gameTile col-xs-1'>" + newLetter + "</span>");
           $('.gameTile').draggable({
             snap: '.boardTile',
             snapMode: 'inner',
             revert: 'invalid'
           });
-          $('.dump').hide()
+          $('.dump').hide();
         }
       }
     });
 
-    $('#submit').click(function(){
-      testArrayAll = [];
-      testArrayRows = [];
-      testArrayCols = [];
-      for (var xx=1; xx<=400; xx++){
-        nannerLogic.masterRowArray.push($('#' + xx).text());
-      }
 
-      for (var yy=1; yy<=20; yy++){
-        for (var zz=1; zz<=20; zz++){
-          nannerLogic.masterColArray.push($('.row'+ zz + ' .col' + yy).text());
-        }
+  }); //run
+
+  $('#submit').click(function(){
+    testArrayAll = [];
+    testArrayRows = [];
+    testArrayCols = [];
+    for (var xx=1; xx<=400; xx++){
+      nannerLogic.masterRowArray.push($('#' + xx).text());
+    }
+
+    for (var yy=1; yy<=20; yy++){
+      for (var zz=1; zz<=20; zz++){
+        nannerLogic.masterColArray.push($('.row'+ zz + ' .col' + yy).text());
       }
-      testArrayRows = nannerLogic.checkArrayRows();
-      testArrayCols = nannerLogic.columnsToRows();
-      testArrayAll = testArrayRows.concat(testArrayCols);
-      var enteredWord = '';
-      console.log(testArrayAll);
-      for(var i = 0; i < testArrayAll.length; i++){
-        var notWordArray = [];
-        if(testArrayAll[i].length > 1){
-          enteredWord = testArrayAll[i];
-          var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
-          $.get(api).then(function(response){
-            if(response.results.length !== 0){
-              console.log(response, 'nice job')
+    }
+    var lettersConnected = nannerLogic.lettersConnected();
+    testArrayRows = nannerLogic.checkArrayRows();
+    testArrayCols = nannerLogic.columnsToRows();
+    var lettersUsed = nannerLogic.checkLetters(testArrayCols);
+    testArrayAll = testArrayRows.concat(testArrayCols);
+    var enteredWord = '';
+
+    if (lettersConnected && lettersUsed) {
+      $.get("./../../SOWPODS.txt").then(function(response) {
+        var dict = response.split("\n");
+        for(var i = 0; i < testArrayAll.length; i++){
+          var notWordArray = [];
+          if(testArrayAll[i].length > 1){
+            enteredWord = testArrayAll[i];
+            if( dict.indexOf(enteredWord) !== -1 ){
+              console.log(enteredWord + ' is a real word. nice job!');
               $('gameBoard').hide();
               $('#end-screen').show();
-            } else if (response.total === 0) {
+            } else {
               notWordArray.push(enteredWord);
               console.log(enteredWord, notWordArray);
             }
-          });
+          }
         }
-      }
-    });
+      });
+    }
   });
-});
+
+}); //ready
