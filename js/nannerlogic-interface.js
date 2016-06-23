@@ -91,13 +91,14 @@ $(document).ready(function(){
         var notWordArray = [];
         if(testArrayAll[i].length > 1){
           enteredWord = testArrayAll[i];
-          var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
-          $.get(api).then(function(response){
-            if(response.results.length !== 0){
-              console.log(response, 'nice job')
+          // var api = 'http://api.pearson.com/v2/dictionaries/entries?headword=' + enteredWord;
+          $.get("./../../SOWPODS.txt").then(function(response) {
+            var dict = response.split("\n");
+            if( dict.indexOf(enteredWord) !== -1 ){
+              console.log(enteredWord + ' is a real word. nice job!');
               $('gameBoard').hide();
               $('#end-screen').show();
-            } else if (response.total === 0) {
+            } else {
               notWordArray.push(enteredWord);
               console.log(enteredWord, notWordArray);
             }
