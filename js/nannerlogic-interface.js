@@ -99,7 +99,7 @@ $(document).ready(function(){
   //Clock
   $("#timer").hide();
   var update = function(htmlElement) {
-    currentTime = moment().minute(20).second($counter--).format('mm : ss');
+    currentTime = moment().minute(5).second($counter--).format('mm : ss');
     scoreTime = moment().minute(0).second(scoreCounter++).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
@@ -171,7 +171,7 @@ $(document).ready(function(){
           }
         }
       });
-      if (notWordArray.isEmpty()) { 
+      if (notWordArray.length === 0) {
         clearInterval(updateInterval);
         $('#finalTime').append(scoreTime);
         $('.gameBoard').slideUp();
