@@ -140,25 +140,25 @@ $(document).ready(function(){
         for(var i = 0; i < testArrayAll.length; i++){
           if(testArrayAll[i].length > 1){
             enteredWord = testArrayAll[i];
-            if( dict.indexOf(enteredWord) !== -1 ){
-            } else {
+            if( dict.indexOf(enteredWord) === -1 ){
               notWordArray.push(enteredWord);
             }
           }
         }
+        if (notWordArray.length === 0) {
+          clearInterval(updateInterval);
+          $('#finalTime').append(scoreTime);
+          $('.gameBoard').slideUp();
+          $('.handDisplay').slideUp();
+          $("#timer").slideUp();
+          $("#end-screen").append('<iframe src="//coub.com/embed/409y8?muted=false&autostart=true&originalSize=false&startWithHD=true" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>');
+          $('#end-screen').slideDown();
+          // win condition
+        } else {
+          alert('Sorry, one of your entries isn\'t a word!');
+        }
       });
-      if (notWordArray.length === 0) {
-        clearInterval(updateInterval);
-        $('#finalTime').append(scoreTime);
-        $('.gameBoard').slideUp();
-        $('.handDisplay').slideUp();
-        $("#timer").slideUp();
-        $("#end-screen").append('<iframe src="//coub.com/embed/409y8?muted=false&autostart=true&originalSize=false&startWithHD=true" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>');
-        $('#end-screen').slideDown();
-        // win condition
-      } else {
-        alert('Sorry, one of your entries isn\'t a word!');
-      }
+
     } else {
       alert("You must use all of your letters make sure your words are all connected.");
     }
