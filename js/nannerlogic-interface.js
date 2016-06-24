@@ -64,7 +64,7 @@ $(document).ready(function(){
             revert: 'invalid'
           });
         } else if (dumpCounter === 2){
-          $(ui.draggable).remove();
+          $(ui.draggable).addClass('invisible');
           newLetter = nannerLogic.letterGenerator();
           $('#handRow4').append("<span id='newTile" + dumpCounter + "' class='gameTile col-xs-1'>" + newLetter + "</span>");
           $('.gameTile').draggable({
