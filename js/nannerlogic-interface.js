@@ -33,7 +33,7 @@ function newScore(scoreName, time) {
 $(document).ready(function(){
   //Game Start
   $('#run').click(function(){
-  $.playSound('sounds/wow2');
+  // $.playSound('sounds/wow2');
     $('.intro-screen').hide();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -171,7 +171,7 @@ $(document).ready(function(){
           }
         }
       });
-      if (notwordArray.length === 0) {
+      if (notWordArray.length === 0) {
         clearInterval(updateInterval);
         $('#finalTime').append(scoreTime);
         $('.gameBoard').slideUp();
