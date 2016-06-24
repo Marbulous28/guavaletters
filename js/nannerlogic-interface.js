@@ -156,7 +156,7 @@ $(document).ready(function(){
     testArrayAll = testArrayRows.concat(testArrayCols);
     var enteredWord = '';
 
-    if (true) {
+    if (lettersConnected && lettersUsed) {
       $.get("./../../SOWPODS.txt").then(function(response) {
         var dict = response.split("\n");
         for(var i = 0; i < testArrayAll.length; i++){
@@ -171,7 +171,7 @@ $(document).ready(function(){
           }
         }
       });
-      if (true) {
+      if (notwordArray.length === 0) {
         clearInterval(updateInterval);
         $('#finalTime').append(scoreTime);
         $('.gameBoard').slideUp();
@@ -182,7 +182,7 @@ $(document).ready(function(){
         // win condition
       }
     } else {
-      console.log("please use all letters and make sure your words are all connected.");
+      alert("You must use all letters, only use real words and make sure your words are all connected.");
       // replace this with an actual alert screen.
     }
 
