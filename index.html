@@ -8,7 +8,6 @@
     <script type="text/javascript" src="build/js/app.js"></script>
     <script   src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js"   integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo="   crossorigin="anonymous"></script>
     <script src='https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <title>Guavagrams</title>
   </head>
   <body>
@@ -44,7 +43,6 @@
       </div>
       <div id='board-wrap'>
         <div class="gameBoard">
-          <!-- game board goes here dynamically on $(document).ready() -->
         </div>
       </div>
       <div class="row">
@@ -98,8 +96,8 @@
         </div>
       </div>
       <div id="end-screen">
-        <h3>Congratulations!</h3>
-          <h3>Your Time Was: <span id="finalTime"></span></h3>
+        <h3 id="title">Congratulations!</h3>
+        <h3 id="timeh3">Your Time Was: <span id="finalTime"></span></h3>
         <button class'btn btn-info'><a href="/">New Game</a></button>
       </div>
     </div>

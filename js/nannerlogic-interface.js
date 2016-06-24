@@ -12,19 +12,11 @@ var testArrayRows = [];
 var testArrayCols = [];
 var testArrayAll = [];
 var newLetter;
-var firebase = require("firebase/app");
-var database = require("firebase/database");
-var config = {
-  apiKey: "AIzaSyC13jyPWJjDxYQKTelaBALIOs8Ky-g_ggY",
-  authDomain: "guavagrams.firebaseapp.com",
-  databaseURL: "https://guavagrams.firebaseio.com",
-  storageBucket: "guavagrams.appspot.com",
-};
 
 $(document).ready(function(){
   //Game Start
   $('#run').click(function(){
-  // $.playSound('sounds/wow2');
+  $.playSound('sounds/wow2');
     $('.intro-screen').hide();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -61,7 +53,6 @@ $(document).ready(function(){
       accept: ".gameTile",
       tolerance: "intersect",
       drop: function(event, ui){
-        console.log(ui);
         if (dumpCounter < 2) {
           $(ui.draggable).addClass('invisible');
           dumpCounter++;
@@ -150,10 +141,8 @@ $(document).ready(function(){
           if(testArrayAll[i].length > 1){
             enteredWord = testArrayAll[i];
             if( dict.indexOf(enteredWord) !== -1 ){
-              console.log(enteredWord + ' is a real word. nice job!');
             } else {
               notWordArray.push(enteredWord);
-              console.log(enteredWord, notWordArray);
             }
           }
         }
@@ -167,11 +156,11 @@ $(document).ready(function(){
         $("#end-screen").append('<iframe src="//coub.com/embed/409y8?muted=false&autostart=true&originalSize=false&startWithHD=true" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>');
         $('#end-screen').slideDown();
         // win condition
+      } else {
+        alert('Sorry, one of your entries isn\'t a word!');
       }
     } else {
-      alert("You must use all letters, only use real words and make sure your words are all connected.");
-      // replace this with an actual alert screen.
+      alert("You must use all of your letters make sure your words are all connected.");
     }
-    });
-
+  });
 }); //ready
