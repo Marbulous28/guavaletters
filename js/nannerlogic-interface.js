@@ -20,15 +20,6 @@ var config = {
   databaseURL: "https://guavagrams.firebaseio.com",
   storageBucket: "guavagrams.appspot.com",
 };
-firebase.initializeApp(config);
-
-//Add New Score Function
-function newScore(scoreName, time) {
-  firebase.database().ref('scores/' + scoreName).set({
-    name: scoreName,
-    score: time
-  });
-}
 
 $(document).ready(function(){
   //Game Start
@@ -110,10 +101,6 @@ $(document).ready(function(){
       }
     }
   };
-  // <iframe src="//coub.com/embed/409y8?muted=false&autostart=false&originalSize=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>
-  // this is the win link. enjoy that.
-  // var timer = new Clock();
-  // timer.counter = 0;
   update($("time"));
   $("#run").click(function() {
     $("#timer").show();
@@ -185,15 +172,6 @@ $(document).ready(function(){
       alert("You must use all letters, only use real words and make sure your words are all connected.");
       // replace this with an actual alert screen.
     }
-
-    // $('#highScoreForm').submit(function(event){
-    //   event.preventDefault();
-    //   var newName = $("#scoreName").val();
-    //   newScore(newName, scoreTime);
-    //   $("#scoreName").val("");
-    //   var thing = firebase.database().ref('scores');
-    //   console.log(thing);
-    //   });
     });
 
 }); //ready
