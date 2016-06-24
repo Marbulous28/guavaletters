@@ -106,7 +106,7 @@ exports.NannerLogic.prototype.RNG = function(max) {
 //RNG for generating hand
 exports.NannerLogic.prototype.letterGenerator = function() {
 
-  var roll = this.RNG(133);
+  var roll = this.RNG(110);
   var roll2 = 0;
   var letterChoice = "";
   var secondLetters = ["Z", "X", "Q", "K", "J"];
@@ -131,7 +131,7 @@ exports.NannerLogic.prototype.letterGenerator = function() {
     roll2 = (this.RNG(2) - 1);
     letterChoice = fourthLetters[roll2];
 
-  } else if (roll > 79 && roll <= 115) {
+  } else if (roll > 79 && roll <= 100) {
     roll2 = (this.RNG(3) - 1);
     letterChoice = fifthLetters[roll2];
 
