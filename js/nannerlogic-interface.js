@@ -99,7 +99,7 @@ $(document).ready(function(){
   //Clock
   $("#timer").hide();
   var update = function(htmlElement) {
-    currentTime = moment().minute(0).second(2 + $counter--).format('mm : ss');
+    currentTime = moment().minute(6).second($counter--).format('mm : ss');
     scoreTime = moment().minute(0).second(scoreCounter++).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
