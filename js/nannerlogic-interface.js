@@ -63,7 +63,7 @@ $(document).ready(function(){
       drop: function(event, ui){
         console.log(ui);
         if (dumpCounter < 2) {
-          $(ui.draggable).remove();
+          $(ui.draggable).addClass('invisible');
           dumpCounter++;
           newLetter = nannerLogic.letterGenerator();
           $('#handRow4').append("<span id='newTile" + dumpCounter + "' class='gameTile col-xs-1'>" + newLetter + "</span>");
